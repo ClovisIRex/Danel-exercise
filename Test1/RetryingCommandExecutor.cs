@@ -4,6 +4,12 @@ namespace Test1;
 
 public class RetryingCommandExecutor : ICommandExecutor
 {
+    private Logger _logger;
+    
+    public RetryingCommandExecutor(Logger logger)
+    {
+        _logger = logger;
+    }
     public void Execute(ICommand command)
     {
         
@@ -13,44 +19,37 @@ public class RetryingCommandExecutor : ICommandExecutor
         while (retries < maxRetries)
         {
             try
-                // Execute the action
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-
-                Console.WriteLine($"Attempting to execute {command.GetType()}...");
-                Console.ResetColor();
-
+                _logger.Log($"Attempting to execute {command.GetType()}...", ConsoleColor.Yellow);
                 if (new Random().Next(0, 3) == 0)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    _logger.Log($"Execution failed, service encountered an error, retrying...",
+                        ConsoleColor.Red);
+                    throw new TimeoutException();
 
-                    throw new TimeoutException("Execution failed, service encountered an error, retrying...");
-                    Console.ResetColor();
                 }
                 
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"{command.GetType()} executed successfully!");
-                Console.ResetColor();
+                _logger.Log($"{command.GetType()} executed successfully!",
+                    ConsoleColor.Green);
                 return;
             }
             catch (TimeoutException ex)
             {
                 retries++;
-                Console.WriteLine($"Retry attempt - {retries}/{maxRetries}: {ex.Message}");
+                Console.WriteLine($"Retry attempt [{retries}/{maxRetries}]: {ex.Message}");
                 Thread.Sleep(1000);
             }
             catch (Exception ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Encountered unexpected exception: {ex.Message}");
-                Console.ResetColor();
+                _logger.Log($"Encountered unexpected exception: {ex.Message}",
+                    ConsoleColor.Red);
                 return;
             }
         }
-
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine($"Failed to execute command after {maxRetries} retries...");
-        Console.ResetColor();
-
+        
+        _logger.Log($"Failed to execute command after {maxRetries} retries. " +
+                    $"Please view the log file ath the path: " + "\n" +
+                    $"{Path.GetFullPath(_logger.getLogFilePath())}",
+            ConsoleColor.Red);
     }
 }
