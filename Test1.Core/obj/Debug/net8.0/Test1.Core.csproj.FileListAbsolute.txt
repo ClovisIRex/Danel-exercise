@@ -1,0 +1,11 @@
+/Users/tal/Downloads/Test (1)/Test1.Core/bin/Debug/net8.0/Test1.Core.deps.json
+/Users/tal/Downloads/Test (1)/Test1.Core/bin/Debug/net8.0/Test1.Core.dll
+/Users/tal/Downloads/Test (1)/Test1.Core/bin/Debug/net8.0/Test1.Core.pdb
+/Users/tal/Downloads/Test (1)/Test1.Core/obj/Debug/net8.0/Test1.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tal/Downloads/Test (1)/Test1.Core/obj/Debug/net8.0/Test1.Core.AssemblyInfoInputs.cache
+/Users/tal/Downloads/Test (1)/Test1.Core/obj/Debug/net8.0/Test1.Core.AssemblyInfo.cs
+/Users/tal/Downloads/Test (1)/Test1.Core/obj/Debug/net8.0/Test1.Core.csproj.CoreCompileInputs.cache
+/Users/tal/Downloads/Test (1)/Test1.Core/obj/Debug/net8.0/Test1.Core.dll
+/Users/tal/Downloads/Test (1)/Test1.Core/obj/Debug/net8.0/refint/Test1.Core.dll
+/Users/tal/Downloads/Test (1)/Test1.Core/obj/Debug/net8.0/Test1.Core.pdb
+/Users/tal/Downloads/Test (1)/Test1.Core/obj/Debug/net8.0/ref/Test1.Core.dll
