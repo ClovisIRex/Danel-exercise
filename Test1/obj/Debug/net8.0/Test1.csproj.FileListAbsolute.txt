@@ -16,3 +16,4 @@
 /Users/tal/Downloads/Test (1)/Test1/obj/Debug/net8.0/Test1.pdb
 /Users/tal/Downloads/Test (1)/Test1/obj/Debug/net8.0/Test1.genruntimeconfig.cache
 /Users/tal/Downloads/Test (1)/Test1/obj/Debug/net8.0/ref/Test1.dll
+/Users/tal/Downloads/Test (1)/Test1/obj/Debug/net8.0/Test1.sourcelink.json

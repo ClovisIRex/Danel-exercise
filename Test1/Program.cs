@@ -6,7 +6,7 @@ namespace Test1
     {
         static void Main(string[] args)
         {
-        ICommandExecutor ce = new CommandExecutor();
+        ICommandExecutor ce = new RetryingCommandExecutor();
         
         var bl = new BusinessLogicManager(ce);
         bl.DoSomeBusinessLogic();
